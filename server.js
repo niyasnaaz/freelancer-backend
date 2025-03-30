@@ -31,7 +31,7 @@ app.use(
   })
 );
 
-export default newRequest;
+
 app.use(express.json());
 app.use(cookieParser());
 
