@@ -24,7 +24,14 @@ const connect = async () => {
   }
 };
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(
+  cors({
+    origin: ["https://sparkly-crepe-5a61af.netlify.app", "http://localhost:5173"],
+    credentials: true,
+  })
+);
+
+export default newRequest;
 app.use(express.json());
 app.use(cookieParser());
 
@@ -41,6 +48,7 @@ app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Something went wrong!";
   return res.status(errorStatus).send(errorMessage);
+  
 });
 
 app.listen(8800, () => {
